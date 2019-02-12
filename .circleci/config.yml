@@ -18,8 +18,8 @@ jobs:
       # 
       # - image: redis:2.8.19
 
-    environment:
-      APP_ENV: testing
+        environment:
+          APP_ENV: testing
 
     steps:
       - checkout
