@@ -18,6 +18,9 @@ jobs:
       # 
       # - image: redis:2.8.19
 
+
+    working_directory: src
+
     steps:
       - checkout
 
@@ -39,7 +42,7 @@ jobs:
       - save_cache:
           key: composer-v1-{{ checksum "composer.lock" }}
           paths:
-            - vendor
+            - src/vendor
 
       # node cache
 
