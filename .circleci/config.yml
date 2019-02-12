@@ -18,9 +18,6 @@ jobs:
       # 
       # - image: redis:2.8.19
 
-        environment:
-          APP_ENV: testing
-
     steps:
       - checkout
 
@@ -69,12 +66,16 @@ jobs:
       #- run: ./vendor/bin/phpunit
       - run: 
           working_directory: src
+          environment:
+            APP_ENV: testing
           command: vendor/bin/codecept build
       #- run: src/vendor/bin/codecept run api --xml result_api.xml
       #- run: src/vendor/bin/codecept run functional --xml result_functional.xml
       #- run: src/vendor/bin/codecept run seeder --xml result_seeder.xml
       - run:
           working_directory: src
+          environment:
+            APP_ENV: testing
           command: vendor/bin/codecept run unit --xml result_unit.xml
       - store_test_results:
           path: src/tests/_output
