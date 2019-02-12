@@ -19,8 +19,6 @@ jobs:
       # - image: redis:2.8.19
 
 
-    working_directory: ~/src
-
     steps:
       - checkout
 
@@ -37,7 +35,9 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: composer install -n --prefer-dist
+      - run:
+          working_directory: src
+          command: composer install -n --prefer-dist
 
       - save_cache:
           key: composer-v1-{{ checksum "composer.lock" }}
@@ -54,21 +54,23 @@ jobs:
       - save_cache:
           key: node-v3-{{ checksum "package.json" }}
           paths:
-            - node_modules
+            - src/node_modules
             - ~/.yarn
 
       # prepare the database
-      - run: touch storage/testing.sqlite
-      - run: php artisan migrate --env=testing --database=sqlite_testing --force
+      - run: touch src/storage/testing.sqlite
+      - run: 
+          working_directory: src
+          command: php artisan migrate --env=testing --database=sqlite_testing --force
 
       # run tests with phpunit or codecept
       #- run: ./vendor/bin/phpunit
-      - run: ./vendor/bin/codecept build
-      - run: ./vendor/bin/codecept run api --xml result_api.xml
-      - run: ./vendor/bin/codecept run functional --xml result_functional.xml
-      - run: ./vendor/bin/codecept run seeder --xml result_seeder.xml
-      - run: ./vendor/bin/codecept run unit --xml result_unit.xml
+      - run: src/vendor/bin/codecept build
+      #- run: src/vendor/bin/codecept run api --xml result_api.xml
+      #- run: src/vendor/bin/codecept run functional --xml result_functional.xml
+      #- run: src/vendor/bin/codecept run seeder --xml result_seeder.xml
+      - run: src/vendor/bin/codecept run unit --xml result_unit.xml
       - store_test_results:
-          path: tests/_output
+          path: src/tests/_output
       - store_artifacts:
-          path: tests/_output
+          path: src/tests/_output
