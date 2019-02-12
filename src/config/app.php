@@ -175,6 +175,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * MyApp
+         */
+        MyApp\ReadingCircles\Application\Providers\MyAppServiceProvider::class,
+        MyApp\ReadingCircles\Application\Providers\RouteServiceProvider::class,
     ],
 
     /*
