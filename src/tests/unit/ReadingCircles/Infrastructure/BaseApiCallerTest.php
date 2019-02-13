@@ -17,4 +17,20 @@ class BaseApiCallerTest extends \Codeception\TestCase\Test
 
         $this->assertRegExp('/example domain/i', $response);
     }
+
+    public function testGetRakutenBooksApiTest()
+    {
+        $uri = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404';
+
+        $params['applicationId'] = '1024169816585144772';
+        $params['title'] = 'サピエンス全史';
+        // 'isbn';
+
+        /** @var BaseApiCaller $caller */
+        $caller = App::make(BaseApiCaller::class);
+        $response = $caller->get($uri, $params);
+        echo $response;
+
+        $this->assertJson($response);
+    }
 }
