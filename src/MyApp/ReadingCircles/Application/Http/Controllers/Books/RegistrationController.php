@@ -3,6 +3,7 @@
 namespace MyApp\ReadingCircles\Application\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
+use MyApp\ReadingCircles\Application\Http\Requests\Books\BookRegistrationRequest;
 
 class RegistrationController extends Controller
 {
@@ -11,7 +12,7 @@ class RegistrationController extends Controller
         return view('reading-circles.books.registration.form');
     }
 
-    public function action()
+    public function action(BookRegistrationRequest $request)
     {
         return redirect('reading-circles/books');
     }

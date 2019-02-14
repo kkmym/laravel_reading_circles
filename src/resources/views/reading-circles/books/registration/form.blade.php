@@ -5,11 +5,11 @@
     @csrf
     <div class="form-group">
         <label class="control-label" for="inputIsbn" >ISBN</label>
-        <input class="form-control" type="text" id="inputIsbn">
+        <input class="form-control" type="text" id="inputIsbn" name="isbn">
     </div>
     <div class="form-group">
         <label class="control-label" for="inputTitle" >書籍タイトル</label>
-        <input class="form-control" type="text" id="inputTitle">
+        <input class="form-control" type="text" id="inputTitle" name="title">
     </div>
     <input class="btn btn-primary" type="submit" value="登録" id="registerButton">
 </form>
