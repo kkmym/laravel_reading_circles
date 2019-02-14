@@ -55,6 +55,7 @@ MyApp
             DomainServices
             Models
         Infrastructure
+            ApiCallers
             DAOs
             Repositories
 ```
