@@ -1,6 +1,6 @@
 <?php
 
-Route::get('st', 'TestController@sessionTest');
+use MyApp\ReadingCircles\Domain\Models\BookIsbn;
 
 Route::get('reading-circles/books', 'Books\IndexController@index');
 Route::get('reading-circles/', 'IndexController@index');

@@ -18,7 +18,7 @@ class CircleTest extends \Codeception\Test\Unit
 
     public function testCircle()
     {
-        $book = new Book(new BookId(1), new BookIsbn('1234567890'), 'テスト');
+        $book = new Book(new BookId(1), new BookIsbn('978-4797347784'), 'テスト');
 
         $organizers = [
             new Member(new MemberId(100), new MemberLoginId('1234abcd'), '名前登録用', '名前表示用'),
