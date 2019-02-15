@@ -22,7 +22,7 @@ class RCMemberLogin
     public function loginByFormInput(string $loginId)
     {
         // DBへの照合
-        $member = $this->memberRepo->queryByLoginId(new MemberLoginId($loginId));
+        $member = $this->memberRepo->findByLoginId(new MemberLoginId($loginId));
         if (!$member) {
             return false;
         }
@@ -59,7 +59,7 @@ class RCMemberLogin
 
         // Guardに情報をセット
         Auth::guard('rcmember')->setUser(new RCAuthedMember($member));
-    
+
         return true;
     }
 
@@ -72,7 +72,7 @@ class RCMemberLogin
         }
 
         // DBからユーザー情報を取得
-        $member = $this->memberRepo->queryByLoginId(new MemberLoginId($loginIdInCookie));
+        $member = $this->memberRepo->findByLoginId(new MemberLoginId($loginIdInCookie));
         if (!$member) {
             return false;
         }

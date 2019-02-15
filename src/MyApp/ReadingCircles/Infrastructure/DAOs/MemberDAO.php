@@ -12,7 +12,7 @@ class MemberDAO extends Model
         'member_id',
     ];
 
-    public function queryByLoginId($loginId)
+    public function findByLoginId($loginId)
     {
         return $this->where('login_id', $loginId)->first();
     }

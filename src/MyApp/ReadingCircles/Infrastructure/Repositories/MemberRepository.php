@@ -25,11 +25,11 @@ class MemberRepository implements MemberRepositoryInterface
 
     }
 
-    public function queryByLoginId(MemberLoginId $loginId) : ?Member
+    public function findByLoginId(MemberLoginId $loginId) : ?Member
     {
         // @todo 実際にDBにアクセスして取得するよう変更
         $valOfLoginId = $loginId->value();
-        $member = $this->memberDao->queryByLoginId($valOfLoginId);
+        $member = $this->memberDao->findByLoginId($valOfLoginId);
         if (!$member) {
             return null;
         }
