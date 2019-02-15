@@ -28,9 +28,7 @@ class BaseApiCallerTest extends \Codeception\TestCase\Test
 
         /** @var BaseApiCaller $caller */
         $caller = App::make(BaseApiCaller::class);
-        $response = $caller->get($uri, $params);
-        echo $response;
-
-        $this->assertJson($response);
+        $contents = $caller->get($uri, $params);
+        $this->assertIsArray($contents);
     }
 }
