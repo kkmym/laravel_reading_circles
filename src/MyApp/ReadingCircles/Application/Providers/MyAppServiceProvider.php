@@ -8,6 +8,8 @@ use MyApp\ReadingCircles\Domain\Models\MemberRepositoryInterface;
 use MyApp\ReadingCircles\Infrastructure\Repositories\MemberRepository;
 use MyApp\ReadingCircles\Domain\Models\BookRepositoryInterface;
 use MyApp\ReadingCircles\Infrastructure\Repositories\BookRepository;
+use MyApp\ReadingCircles\Infrastructure\Repositories\BookDetailsRepository;
+use MyApp\ReadingCircles\Domain\Models\BookDetailsRepositoryInterface;
 
 class MyAppServiceProvider extends ServiceProvider
 {
@@ -22,5 +24,6 @@ class MyAppServiceProvider extends ServiceProvider
     {
         $this->app->bind(MemberRepositoryInterface::class, MemberRepository::class);
         $this->app->bind(BookRepositoryInterface::class, BookRepository::class);
+        $this->app->bind(BookDetailsRepositoryInterface::class, BookDetailsRepository::class);
     }
 }

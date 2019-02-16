@@ -19,7 +19,7 @@ class BookDetails
     /**
      * @var string
      */
-    protected $auther;
+    protected $author;
     /**
      * @var string
      */
@@ -40,7 +40,7 @@ class BookDetails
     public function __construct(
         string $title
         ,BookIsbn $bookIsbn
-        ,string $auther
+        ,string $author
         ,string $publisher
         ,string $salesDate
         ,int $price
@@ -49,7 +49,7 @@ class BookDetails
     {
         $this->title = $title;
         $this->bookIsbn = $bookIsbn;
-        $this->auther = $auther;
+        $this->author = $author;
         $this->publisher = $publisher;
         $this->salesDate = $salesDate;
         $this->price = $price;
@@ -71,9 +71,9 @@ class BookDetails
         return $this->bookIsbn->value();
     }
 
-    public function auther() : string
+    public function author() : string
     {
-        return $this->auther;
+        return $this->author;
     }
 
     public function publisher() : string

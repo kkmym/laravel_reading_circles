@@ -40,7 +40,7 @@ class BookDetailsRepository implements BookDetailsRepositoryInterface
         $bookDetails = new BookDetails(
             $apiBook->title
             ,new BookIsbn($apiBook->isbn)
-            ,$apiBook->auther
+            ,$apiBook->author
             ,$apiBook->publisherName
             ,$apiBook->salesDate
             ,$apiBook->itemPrice
