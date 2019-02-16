@@ -40,7 +40,7 @@ class BaseApiCaller
             return $contents;
         }
 
-        $decoded = json_decode($contents, true);
+        $decoded = json_decode($contents, false);
 
         if (json_last_error() != JSON_ERROR_NONE) {
             return $contents;
