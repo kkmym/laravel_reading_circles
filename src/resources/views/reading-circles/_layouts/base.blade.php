@@ -17,6 +17,13 @@
 <div class="container">
 @yield('main')
 </div>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"></script>
+
+@yield('js')
 </body>
 <!-- /body -->
 </html>
