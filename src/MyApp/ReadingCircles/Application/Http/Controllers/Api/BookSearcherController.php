@@ -11,21 +11,12 @@ class BookSearcherController extends Controller
 {
     public function index(BookSearcherRequest $request, BookSearch $useCase)
     {
-        /*
-        return response()->json(
-            [
-                ['title'=>'書籍タイトル１', 'isbn'=>'1111111111111'],
-                ['title'=>'書籍タイトル２', 'isbn'=>'2222222222222'],
-            ]
-        );
-        */
-
         $params = $request->all();
         $isbn = array_get($params, 'isbn');
         /** @var BookDetails $bookDetails */
         $bookDetails = $useCase->searchByIsbn($isbn);
         if (!$bookDetails) {
-            rturn;
+            return;
         }
 
         return response()->json(
