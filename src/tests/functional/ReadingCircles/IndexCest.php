@@ -1,6 +1,6 @@
 <?php
 
-class IndexRegisterCest
+class IndexCest
 {
     public function _before()
     {

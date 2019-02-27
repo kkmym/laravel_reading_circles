@@ -8,6 +8,8 @@ class IndexController extends Controller
 {
     public function index()
     {
-        return view('reading-circles.books.index');
+        // ダミーデータ
+        $viewData = [];
+        return view('reading-circles.books.index')->with($viewData);
     }
 }
