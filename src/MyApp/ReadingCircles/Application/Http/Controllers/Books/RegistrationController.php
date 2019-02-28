@@ -4,7 +4,7 @@ namespace MyApp\ReadingCircles\Application\Http\Controllers\Books;
 
 use App\Http\Controllers\Controller;
 use MyApp\ReadingCircles\Application\Http\Requests\Books\BookRegistrationRequest;
-use MyApp\ReadingCircles\Application\UseCases\Books\BookRegistration\BookRegistration;
+use MyApp\ReadingCircles\Application\UseCases\Books\RegisterBook;
 
 class RegistrationController extends Controller
 {
@@ -17,7 +17,7 @@ class RegistrationController extends Controller
      * @var BookRegistrationRequest $request
      * @var BookRegistration $useCase
      */
-    public function action(BookRegistrationRequest $request, BookRegistration $useCase)
+    public function action(BookRegistrationRequest $request, RegisterBook $useCase)
     {
         $params = $request->all();
         // @todo 例外発生時の処理

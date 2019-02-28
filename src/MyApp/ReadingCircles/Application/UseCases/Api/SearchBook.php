@@ -7,7 +7,7 @@ use MyApp\ReadingCircles\Domain\Models\BookIsbn;
 use MyApp\ReadingCircles\Domain\Exceptions\InvariantException;
 
 
-class BookSearch
+class SearchBook
 {
     /**
      * @var BookDetailsRepositoryInterface

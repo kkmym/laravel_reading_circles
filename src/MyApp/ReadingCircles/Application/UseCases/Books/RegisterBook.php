@@ -1,6 +1,6 @@
 <?php
 
-namespace MyApp\ReadingCircles\Application\UseCases\Books\BookRegistration;
+namespace MyApp\ReadingCircles\Application\UseCases\Books;
 
 use MyApp\ReadingCircles\Domain\Models\BookIsbn;
 use MyApp\ReadingCircles\Domain\Models\Book;
@@ -9,7 +9,7 @@ use MyApp\ReadingCircles\Domain\DomainServices\BookDomainService;
 use MyApp\ReadingCircles\Domain\Exceptions\InvariantException;
 
 
-class BookRegistration
+class RegisterBook
 {
     /**
      * @var BookRepositoryInterface

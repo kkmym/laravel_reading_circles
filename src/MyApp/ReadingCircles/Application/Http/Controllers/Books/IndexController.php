@@ -7,9 +7,20 @@ use MyApp\ReadingCircles\Application\Http\Presenter\Books\BookForIndex;
 use MyApp\ReadingCircles\Domain\Models\Book;
 use MyApp\ReadingCircles\Domain\Models\BookIsbn;
 use MyApp\ReadingCircles\Domain\Models\BookId;
+use MyApp\ReadingCircles\Application\UseCases\Books\FindBooks;
 
 class IndexController extends Controller
 {
+    /**
+     * @var FindBooks
+     */
+    protected $useCase;
+
+    public function __construct(FindBooks $useCase)
+    {
+        $this->useCase = $useCase;
+    }
+
     public function index()
     {
         // ダミーデータ
