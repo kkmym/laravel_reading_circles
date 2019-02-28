@@ -2,7 +2,7 @@
 
 namespace MyApp\ReadingCircles\Domain\DomainServices;
 
-use MyApp\ReadingCircles\Domain\Models\BookRepositoryInterface;
+use MyApp\ReadingCircles\Domain\Repositories\BookRepositoryInterface;
 use MyApp\ReadingCircles\Domain\Models\BookIsbn;
 
 class BookDomainService
@@ -14,7 +14,7 @@ class BookDomainService
 
     public function __construct(BookRepositoryInterface $repository)
     {
-        $this->repository = $repository;    
+        $this->repository = $repository;
     }
 
     public function isDuplicate(BookIsbn $bookIsbn) : bool

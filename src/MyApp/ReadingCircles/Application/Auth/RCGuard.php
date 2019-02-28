@@ -5,11 +5,6 @@ namespace MyApp\ReadingCircles\Application\Auth;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Authenticatable;
 
-use MyApp\ReadingCircles\Domain\Models\MemberRepositoryInterface;
-
-use MyApp\ReadingCircles\Domain\Models\Member;
-use MyApp\ReadingCircles\Domain\Models\MemberId;
-use MyApp\ReadingCircles\Domain\Models\MemberLoginId;
 use MyApp\ReadingCircles\Application\UseCases\RCMemberLogin;
 
 class RCGuard implements Guard

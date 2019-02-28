@@ -4,7 +4,6 @@ namespace MyApp\ReadingCircles\Domain\Models;
 
 use MyApp\ReadingCircles\Domain\Exceptions\InvariantException;
 
-
 class BookIsbn
 {
     /**

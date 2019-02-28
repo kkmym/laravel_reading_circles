@@ -2,7 +2,7 @@
 
 namespace MyApp\ReadingCircles\Infrastructure\Repositories;
 
-use MyApp\ReadingCircles\Domain\Models\BookDetailsRepositoryInterface;
+use MyApp\ReadingCircles\Domain\Repositories\BookDetailsRepositoryInterface;
 use MyApp\ReadingCircles\Domain\Models\BookIsbn;
 use MyApp\ReadingCircles\Infrastructure\ApiCallers\RakutenApiCaller;
 use MyApp\ReadingCircles\Domain\Models\BookDetails;
@@ -20,7 +20,7 @@ class BookDetailsRepository implements BookDetailsRepositoryInterface
         $this->apiCaller = $apiCaller;
     }
 
-    public function queryByBookIsbn(BookIsbn $bookIsbn) : ?BookDetails
+    public function findByBookIsbn(BookIsbn $bookIsbn) : ?BookDetails
     {
         $apiResult = $this->apiCaller->queryByIsbn($bookIsbn->value());
         if (!property_exists($apiResult, 'count') || $apiResult->count == 0) {

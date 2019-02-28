@@ -4,7 +4,7 @@ namespace MyApp\ReadingCircles\Application\UseCases\Books\BookRegistration;
 
 use MyApp\ReadingCircles\Domain\Models\BookIsbn;
 use MyApp\ReadingCircles\Domain\Models\Book;
-use MyApp\ReadingCircles\Domain\Models\BookRepositoryInterface;
+use MyApp\ReadingCircles\Domain\Repositories\BookRepositoryInterface;
 use MyApp\ReadingCircles\Domain\DomainServices\BookDomainService;
 use MyApp\ReadingCircles\Domain\Exceptions\InvariantException;
 

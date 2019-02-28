@@ -16,7 +16,7 @@ class BookDetailsRepositoryTest extends \Codeception\Test\Unit
 
         /** @var BookDetailsRepository $repo */
         $repo = App::make(BookDetailsRepository::class);
-        $bookDetails = $repo->queryByBookIsbn(new BookIsbn($isbn));
+        $bookDetails = $repo->findByBookIsbn(new BookIsbn($isbn));
 
         $this->assertNotEmpty($bookDetails);
         $this->assertEquals($isbn, $bookDetails->isbn());
@@ -28,7 +28,7 @@ class BookDetailsRepositoryTest extends \Codeception\Test\Unit
 
         /** @var BookDetailsRepository $repo */
         $repo = App::make(BookDetailsRepository::class);
-        $bookDetails = $repo->queryByBookIsbn(new BookIsbn($isbn));
+        $bookDetails = $repo->findByBookIsbn(new BookIsbn($isbn));
 
         $this->assertNull($bookDetails);
     }

@@ -4,12 +4,12 @@ namespace MyApp\ReadingCircles\Application\Providers;
 
 use MyApp\ReadingCircles\Application\Auth\RCGuard;
 use Illuminate\Support\ServiceProvider;
-use MyApp\ReadingCircles\Domain\Models\MemberRepositoryInterface;
+use MyApp\ReadingCircles\Domain\Repositories\MemberRepositoryInterface;
 use MyApp\ReadingCircles\Infrastructure\Repositories\MemberRepository;
-use MyApp\ReadingCircles\Domain\Models\BookRepositoryInterface;
+use MyApp\ReadingCircles\Domain\Repositories\BookRepositoryInterface;
 use MyApp\ReadingCircles\Infrastructure\Repositories\BookRepository;
 use MyApp\ReadingCircles\Infrastructure\Repositories\BookDetailsRepository;
-use MyApp\ReadingCircles\Domain\Models\BookDetailsRepositoryInterface;
+use MyApp\ReadingCircles\Domain\Repositories\BookDetailsRepositoryInterface;
 
 class MyAppServiceProvider extends ServiceProvider
 {

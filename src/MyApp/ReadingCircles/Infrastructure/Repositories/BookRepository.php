@@ -2,10 +2,11 @@
 
 namespace MyApp\ReadingCircles\Infrastructure\Repositories;
 
-use MyApp\ReadingCircles\Domain\Models\BookRepositoryInterface;
+use MyApp\ReadingCircles\Domain\Repositories\BookRepositoryInterface;
 use MyApp\ReadingCircles\Domain\Models\Book;
 use MyApp\ReadingCircles\Domain\Models\BookId;
 use MyApp\ReadingCircles\Domain\Models\BookIsbn;
+use MyApp\ReadingCircles\Domain\Specifications\PaginateInterface;
 use MyApp\ReadingCircles\Infrastructure\DAOs\BookDAO;
 
 class BookRepository implements BookRepositoryInterface
@@ -17,7 +18,7 @@ class BookRepository implements BookRepositoryInterface
 
     public function __construct(BookDAO $bookDao)
     {
-        $this->bookDao = $bookDao;        
+        $this->bookDao = $bookDao;
     }
 
     public function persist(Book $book) : Book
@@ -62,5 +63,10 @@ class BookRepository implements BookRepositoryInterface
             new BookIsbn($data->isbn),
             $data->title
         );
+    }
+
+    public function findAllBy(?PaginateInterface $pagenate): Book
+    {
+
     }
 }

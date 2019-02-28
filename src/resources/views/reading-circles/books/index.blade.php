@@ -13,7 +13,14 @@
     </tr>
 </thead>
 <tbody>
-@if (isset($viewData['bookList']) && count($viewData['bookList']) > 0)
+@if (isset($bookList) && count($bookList) > 0)
+    @foreach ($bookList as $book)
+    <tr>
+        <td>{{ $book->isbn() }}</td>
+        <td>{{ $book->title() }}</td>
+        <td><a href="{{ $book->linkToCircleList() }}">リンク</a></td>
+    </tr>
+    @endforeach
 @else
     <tr>
         <td colspan="3">登録されている書籍はありません</td>

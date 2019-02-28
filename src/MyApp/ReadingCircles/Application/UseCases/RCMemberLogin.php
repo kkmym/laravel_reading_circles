@@ -2,7 +2,7 @@
 
 namespace MyApp\ReadingCircles\Application\UseCases;
 
-use MyApp\ReadingCircles\Domain\Models\MemberRepositoryInterface;
+use MyApp\ReadingCircles\Domain\Repositories\MemberRepositoryInterface;
 use MyApp\ReadingCircles\Domain\Models\MemberLoginId;
 use MyApp\ReadingCircles\Application\Auth\RCAuthedMember;
 use Auth;

@@ -53,7 +53,10 @@ MyApp
             UseCases
         Domain
             DomainServices
+            Exceptions
             Models
+            Repositories
+            Specifications
         Infrastructure
             ApiCallers
             DAOs

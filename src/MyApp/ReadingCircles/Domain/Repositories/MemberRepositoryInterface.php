@@ -1,6 +1,9 @@
 <?php
 
-namespace MyApp\ReadingCircles\Domain\Models;
+namespace MyApp\ReadingCircles\Domain\Repositories;
+
+use MyApp\ReadingCircles\Domain\Models\Member;
+use MyApp\ReadingCircles\Domain\Models\MemberLoginId;
 
 interface MemberRepositoryInterface
 {
