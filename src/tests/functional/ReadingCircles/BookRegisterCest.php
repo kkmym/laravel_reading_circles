@@ -19,8 +19,8 @@ class BookRegisterCest
         $I->amLoggedAs(['login_id' => 'testLoginId'], 'rcmember');
 
         $I->amOnPage('/reading-circles/books/registration/form');
-        $I->fillField(['name' => 'isbn'], '978-4822289607');
-        $I->fillField(['name' => 'title'], 'ファクトフルネス');
+        $I->fillField(['name' => 'isbn'], '9784757143555');
+        $I->fillField(['name' => 'title'], 'ニュー・ダーク・エイジ');
         $I->click('#registerButton');
 
         $I->seeCurrentUrlEquals('/reading-circles/books');

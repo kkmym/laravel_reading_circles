@@ -66,4 +66,19 @@ class BookDAOTest extends \Codeception\TestCase\Test
         $book = $dao->findById($newId);
         $this->assertEquals($book->isbn, $this->isbn);
     }
+
+    public function testFindAllBy()
+    {
+        $dao = new BookDAO();
+
+        $dao->fill([
+            'isbn' => $this->isbn,
+            'title' => $this->title,
+        ]);
+        $dao->save();
+
+        $records = $dao->findAllBy();
+        $this->assertEquals(1, $records->count());
+        $this->assertEquals($this->title, $records[0]->title);
+    }
 }

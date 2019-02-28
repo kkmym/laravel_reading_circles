@@ -21,4 +21,12 @@ class BookDAO extends Model
     {
         return $this->where('isbn', $isbn)->first();
     }
+
+    public function findAllBy(int $offset = 0, int $limit = PHP_INT_MAX)
+    {
+        return \DB::table($this->table)
+                ->offset($offset)
+                ->limit($limit)
+                ->get();
+    }
 }

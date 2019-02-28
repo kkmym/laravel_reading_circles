@@ -8,6 +8,7 @@ use MyApp\ReadingCircles\Domain\Models\BookId;
 use MyApp\ReadingCircles\Domain\Models\BookIsbn;
 use MyApp\ReadingCircles\Domain\Specifications\PaginateInterface;
 use MyApp\ReadingCircles\Infrastructure\DAOs\BookDAO;
+use Illuminate\Support\Collection;
 
 class BookRepository implements BookRepositoryInterface
 {
@@ -65,8 +66,27 @@ class BookRepository implements BookRepositoryInterface
         );
     }
 
-    public function findAllBy(?PaginateInterface $pagenate): Book
+    public function findAllBy(PaginateInterface $paginate = null): ?Collection
     {
+        $offset = 0;
+        $limit = PHP_INT_MAX;
 
+        if (!is_null($paginate)) {
+            $offset = $paginate->offset();
+            $limit = $paginate->limit();
+        }
+
+        $records = $this->bookDao->findAllBy($offset, $limit);
+        if ($records->count() == 0) {
+            return null;
+        }
+
+        $bookCollection = collect();
+        foreach($records as $record) {
+            $book = $this->_stdClassToBook($record);
+            $bookCollection->push($book);
+        }
+
+        return $bookCollection;
     }
 }

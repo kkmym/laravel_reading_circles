@@ -11,8 +11,8 @@ class BookRepositoryTest extends \Codeception\TestCase\Test
      */
     protected $tester;
 
-    protected $isbn = '9784274217623';
-    protected $title = 'エクストリームプログラミング';
+    protected $isbn = '9784757143555';
+    protected $title = 'ニュー・ダーク・エイジ';
 
     public function testPersist()
     {
