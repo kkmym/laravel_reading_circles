@@ -23,9 +23,10 @@ class IndexController extends Controller
 
     public function index()
     {
+        $books = $this->useCase->findAll();
         // ダミーデータ
         $viewData = [
-            // 'bookList' => [new BookForIndex(new Book(new BookId(1), new BookIsbn('9784822289607'), 'ファクトフルネス'))]
+            'books' => $books,
         ];
 
         return view('reading-circles.books.index')->with($viewData);

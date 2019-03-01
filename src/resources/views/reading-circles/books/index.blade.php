@@ -13,8 +13,8 @@
     </tr>
 </thead>
 <tbody>
-@if (isset($bookList) && count($bookList) > 0)
-    @foreach ($bookList as $book)
+@if (isset($books) && $books->count() > 0)
+    @foreach ($books as $book)
     <tr>
         <td>{{ $book->isbn() }}</td>
         <td>{{ $book->title() }}</td>
