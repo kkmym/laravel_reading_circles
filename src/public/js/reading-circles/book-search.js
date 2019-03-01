@@ -3,6 +3,13 @@ document.querySelector('input#inputIsbn').addEventListener('change', function(ev
 })
 
 var searchByIsbn = function(isbn) {
+    isbn = normalizeIsbn(isbn)
+    if (!isbn) {
+        return
+    }
+
+    setNormarizedIsbnVal(isbn)
+
     let searchApiUrl = document.querySelector('input#inputSearchUrl').getAttribute('data-search-url')
     fetch(searchApiUrl + "?isbn=" + isbn)
     .then(function(response) {
@@ -15,6 +22,20 @@ var searchByIsbn = function(isbn) {
             return
         }
 
-        document.querySelector('input#inputTitle').setAttribute('value', json.title)
+        document.querySelector('input#inputTitle').value = json.title
     })
 };
+
+var normalizeIsbn = function(isbn) {
+    let normalized = isbn.replace(/[^0-9]/g, '')
+    if (!normalized.match(/^[0-9]{13}$/)) {
+        return null
+    }
+
+    return normalized
+}
+
+var setNormarizedIsbnVal = function(isbn) {
+    console.log('here. ' + isbn)
+    document.querySelector('input#inputIsbn').value = isbn
+}
